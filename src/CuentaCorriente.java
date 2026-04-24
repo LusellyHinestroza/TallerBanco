@@ -20,6 +20,7 @@ public class CuentaCorriente extends CuentaBancaria{
         return comisionPorTransaccion;
     }
 
+    @Override
     public void realizarRetiro(double monto){
           double totalRetiro = monto + calcularComision();
           double nuevoSaldo = getSaldo() - totalRetiro;

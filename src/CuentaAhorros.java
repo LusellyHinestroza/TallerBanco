@@ -26,12 +26,15 @@ public class CuentaAhorros extends CuentaBancaria{
     }
 
 
+
     public void realizarRetiro(double monto, boolean esUrgente){
-        setSaldo(getSaldo() - monto);
+       double nuevoSaldo = getSaldo() - monto;
         if(esUrgente && getSaldo() < saldoMinimo){
-            setSaldo(getSaldo() - calcularComision());
+            nuevoSaldo-= calcularComision();
         }
+        setSaldo(nuevoSaldo);
     }
+
 
     public double calcularInteresDelMes(){
         return getSaldo() * tasaInteresMensual / 100;
